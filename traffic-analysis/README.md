@@ -19,42 +19,42 @@ Analyze unencrypted network traffic using Wireshark and Netwag to extract sensit
 - Understood how insecure protocols expose user data  
 - Learned to reconstruct full communication sessions using Wireshark
 
-##  Useful Wireshark Filters
-telnet
-ftp
-http
-tcp.port == 21
-tcp contains "username"
 
 ##  Commands and Setup
 
 ### 1. Enable network interface monitoring
 To identify interface: 
-ip a 
+```bash
+ip a
+```
+```bash
 sudo ifconfig eth0 promisc
+```
 
 ### 2. Start Wireshark (as root if needed)
+```bash
 sudo wireshark
+```
 
 ### 3. Begin packet capture
-- Select interface (e.g., eth0)
+- Select interface (eth0)
 - Apply filters (see below)
 - Start capturing while a Telnet or HTTP session is active
 
-###  Filters Used in Wireshark
+##  Filters Used in Wireshark
 Capture Filters:
-port 23      # Telnet
-port 21      # FTP
-port 80      # HTTP
+- port 23      # Telnet
+- port 21      # FTP
+- port 80      # HTTP
 
-### Display Filters:
-telnet
-ftp
-http
-tcp contains "password"
-tcp contains "login"
+## Display Filters:
+- telnet
+- ftp
+- http
+- tcp contains "password"
+- tcp contains "login"
 
-## 🧪 Activities Performed
+##  Activities Performed
 #### ➤ Telnet Credential Capture
 - Set up Telnet server and connected from client VM
 - Captured session using Wireshark
@@ -69,8 +69,9 @@ tcp contains "login"
 - Observed FTP authentication (USER, PASS) in plaintext
 - Noted command-response behavior in FTP protocol
 
-🧠 Key Observations
+##  Key Observations
 1. Unencrypted protocols (Telnet, FTP, HTTP) transmit sensitive data in plaintext.
 2. Wireshark TCP stream reconstruction makes it easy to read entire conversations.
 3. Even local attackers on the same
+
 
