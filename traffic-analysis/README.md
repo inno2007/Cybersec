@@ -7,17 +7,15 @@ Analyze unencrypted network traffic using Wireshark and Netwag to extract sensit
 - Wireshark  
 - Netwag  
 - Kali Linux / Ubuntu  
-- Optional: tcpdump, Netcat
 
 ##  Lab Activities
-- Captured live packets from HTTP, FTP, and Telnet sessions  
-- Used filters to isolate login traffic  
-- Followed TCP streams to extract cleartext credentials  
-- Analyzed packet headers and payloads  
+- Captured live packets from HTTP, FTP, and Telnet sessions. 
+- Used filters to isolate login traffic.
+- Followed TCP streams to extract cleartext credentials .
+- Analyzed packet headers and payloads.
 - Identified security risks in legacy protocols
 
 ##  Key Outcomes
-- Gained experience in passive traffic analysis  
 - Understood how insecure protocols expose user data  
 - Learned to reconstruct full communication sessions using Wireshark
 
