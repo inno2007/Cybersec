@@ -29,7 +29,8 @@ tcp contains "username"
 ##  Commands and Setup
 
 ### 1. Enable network interface monitoring
-To identify interface: ip a     
+To identify interface: 
+ip a 
 sudo ifconfig eth0 promisc
 
 ### 2. Start Wireshark (as root if needed)
