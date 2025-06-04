@@ -1,4 +1,4 @@
-#  Traffic Analysis – Wireshark & Netwag
+#  Traffic Analysis – Wireshark - Sensitive Data In Plaintext
 
 ##  Objective
 Analyze unencrypted network traffic using Wireshark and Netwag to extract sensitive information such as usernames and passwords transmitted via insecure protocols (HTTP, Telnet, FTP).
