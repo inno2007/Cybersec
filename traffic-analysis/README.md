@@ -81,7 +81,6 @@ Capture Filters:
 - Entered my name and password then click submit 
 - Reopen the wireshark and find the POST INFO
 - Opened the packet and open the Line-based test data
----
 - Image extraction = Still uses wireshark. 
 - Click the packets -> File (Top Left) -> Extract -> HTTP -> Click the image/gif -> Save
 
