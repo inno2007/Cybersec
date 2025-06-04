@@ -8,7 +8,7 @@ Analyze unencrypted network traffic using Wireshark and Netwag to extract sensit
 - Netwag  
 - Kali Linux / VMWare   
 
-##  Lab Activities
+##  Activities
 - Captured live packets from HTTP, FTP, and Telnet sessions. 
 - Used filters to isolate login traffic.
 - Followed TCP streams to extract cleartext credentials .
@@ -26,10 +26,10 @@ http
 tcp.port == 21
 tcp contains "username"
 
-## 🛠 Commands and Setup
+##  Commands and Setup
 
 ### 1. Enable network interface monitoring
-ip a        # Identify interface (e.g., eth0, wlan0)
+To identify interface: ip a     
 sudo ifconfig eth0 promisc
 
 ### 2. Start Wireshark (as root if needed)
@@ -40,7 +40,7 @@ sudo wireshark
 - Apply filters (see below)
 - Start capturing while a Telnet or HTTP session is active
 
-### 🔍 Filters Used in Wireshark
+###  Filters Used in Wireshark
 Capture Filters:
 port 23      # Telnet
 port 21      # FTP
