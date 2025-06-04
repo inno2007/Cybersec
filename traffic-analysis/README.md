@@ -86,6 +86,6 @@ Capture Filters:
 
 
 ## Outcome
-  
+![Image](https://github.com/user-attachments/assets/bfd0e26d-22f4-4429-9e35-381071d0973e)
 
-
+![Image](https://github.com/user-attachments/assets/a4feb3b7-5aee-4858-ae09-1bce1d4bf0fd)
