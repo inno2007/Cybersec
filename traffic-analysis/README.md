@@ -74,5 +74,19 @@ Capture Filters:
 2. Wireshark TCP stream reconstruction makes it easy to read entire conversations.
 3. Even local attackers on the same
 
+## Exact Task Being Done 
+- For extracting unecrpyted data, we need to set up Wireshark in the Server VM. sudo wireshark
+- Filter http on the wireshark 
+- Open the website http//testphp.vulnweb.com/login.php
+- Entered my name and password then click submit 
+- Reopen the wireshark and find the POST INFO
+- Opened the packet and open the Line-based test data
+---
+- Image extraction = Still uses wireshark. 
+- Click the packets -> File (Top Left) -> Extract -> HTTP -> Click the image/gif -> Save
+
+
+## Outcome
+  
 
 
