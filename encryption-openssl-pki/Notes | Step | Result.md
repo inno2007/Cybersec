@@ -27,7 +27,7 @@ openssl enc -aes-128-cbc -e -in Text_file.txt -out Encrypted.enc -K 112233445566
 openssl enc -aes-128-cbc -d -in Encrypted.enc -out Decrypted.txt -K 11223344556677889900 -iv 0000
 ```
 
-🧠 Notes:  
+Notes:  
 - `-K` and `-iv` must be in **hex**  
 - Use 128-bit key → 32 hex characters
 
@@ -35,7 +35,7 @@ To view output:
 ```bash
 gedit Encrypted.enc
 ```
-
+![Image](https://github.com/user-attachments/assets/f2dc704c-2932-4bf5-ba6c-0001a4a0f3d6)
 ---
 
 ## B. RSA Encryption & Decryption (Asymmetric)
@@ -90,7 +90,7 @@ gpg --verify signedfile.asc
 
 ---
 
-## 🏛D. Create Certificate Authority (CA) – Root Cert
+## D. Create Certificate Authority (CA) – Root Cert
 
 ### Step 1: Setup CA Folder
 ```bash
@@ -148,7 +148,7 @@ Approve prompts with `y`
 
 ---
 
-## 🌍 F. Run a Local HTTPS Website (PKI in Action)
+## F. Run a Local HTTPS Website (PKI in Action)
 
 ### Step 1: Map Domain to Localhost
 ```bash
@@ -176,13 +176,12 @@ Visit:
 https://cybersec.com.au:4433/
 ```
 - Shows warning until Root CA is trusted
-
----
+- 
 
 ### Step 5: Trust the Root CA
 Firefox → Preferences → Privacy & Security → Certificates  
 → Import `ca.crt` → Check "Trust to identify websites"
 
 Now reload the site → No warning 
-
+![Image](https://github.com/user-attachments/assets/e9f410f1-5e5e-438b-9bc2-637f75388819)
 ---
