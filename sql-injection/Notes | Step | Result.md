@@ -1,11 +1,11 @@
-# 💉 SQL Injection (SQLi) Lab – Exploiting and Bypassing Insecure Queries
+# SQL Injection (SQLi) Lab – Exploiting and Bypassing Insecure Queries
 
-## 🎯 Objective  
+## Objective  
 Learn how to exploit SQL injection (SQLi) in a vulnerable web application to bypass authentication, extract data, and write output to a file. Understand how unsanitized inputs lead to full database compromise.
 
 ---
 
-## 🛠Tools Used  
+## Tools Used  
 - Apache Web Server  
 - PHP login form (`index.php`)  
 - Firefox (localhost)  
