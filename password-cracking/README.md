@@ -49,5 +49,9 @@ Notes
 - Format for password files must match /etc/passwd and /etc/shadow structure
 - Use unshadow if needed to combine passwd and shadow files: unshadow passwd.txt shadow.txt > mypasswd
 
+---
 
+## Exact Task Being Done 
+Above 
 
+## Outcome
