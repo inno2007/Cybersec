@@ -1,11 +1,11 @@
-# 🔐 Password Cracking – John the Ripper
+# Password Cracking – John the Ripper
 
-## 🎯 Objective  
+## Objective  
 Simulate password cracking using John the Ripper to understand how dictionary-based and rule-based attacks work against hashed password files.
 
 ---
 
-## 🛠️ Tools Used  
+## Tools Used  
 - John the Ripper  
 - Kali Linux / Ubuntu  
 - Wordlists (`password.lst`)  
@@ -13,7 +13,7 @@ Simulate password cracking using John the Ripper to understand how dictionary-ba
 
 ---
 
-## 🧪 Lab Activities
+## Lab Activities
 
 ### 1. Navigate to Password Files
 cd ~/Documents
