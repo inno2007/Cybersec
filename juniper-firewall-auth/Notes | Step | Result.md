@@ -1,13 +1,13 @@
-# 🔒 Juniper SRX300 – Security Policies & Firewall User Authentication
+# Juniper SRX300 – Security Policies & Firewall User Authentication
 
-## 🎯 Objective  
+## Objective  
 Work with Juniper's SRX series firewall to control network access using two key layers of defense:
 Security Policies between zones  
 Firewall User Authentication (Pass-through Login)
 
 ---
 
-## 🛠️ Tools & Devices  
+## Tools & Devices  
 - Juniper SRX300 (via SSH)  
 - Terminal (PuTTY or Linux CLI)  
 - Lab IPs (given by tutor)  
@@ -17,7 +17,7 @@ Firewall User Authentication (Pass-through Login)
 
 ---
 
-## 🔧 JUNOS Modes Overview
+## JUNOS Modes Overview
 
 | Mode             | Prompt | Description                              |
 |------------------|--------|------------------------------------------|
@@ -33,7 +33,7 @@ configure   # from operational to configuration
 
 ---
 
-## 🔁 – Configure Security Policies (Zone-Based Firewall)
+## – Configure Security Policies (Zone-Based Firewall)
 
 ### Step 1: SSH into the Routers
 
@@ -49,7 +49,7 @@ ssh student@10.0.0.1XX       # Password: Juniper
 show security policies
 ```
 
-🧠 See all allowed/denied traffic between zones like Internet → Internal.
+- See all allowed/denied traffic between zones like Internet → Internal.
 
 ---
 
@@ -70,7 +70,7 @@ top
 commit
 ```
 
-✅ This allows FTP traffic from any source to the internal server.
+- This allows FTP traffic from any source to the internal server.
 
 ---
 
@@ -103,9 +103,9 @@ commit
 
 ---
 
-## 🔐  – Configure Firewall User Authentication (Pass-through Login)
+## – Configure Firewall User Authentication (Pass-through Login)
 
-### 🔑 Concept  
+### Concept  
 When a user tries to access a service (Telnet, HTTP), the firewall intercepts and forces them to log in. If credentials are correct → access is granted.
 
 ---
@@ -144,7 +144,7 @@ top
 commit
 ```
 
-🧠 Now, Telnet will require a login prompt before connecting.
+- Now, Telnet will require a login prompt before connecting.
 
 ---
 
@@ -167,11 +167,11 @@ Password: juniper123
 Login Successful
 ```
 
-✅ Firewall remembers IP temporarily to avoid repeated login.
+- Firewall remembers IP temporarily to avoid repeated login.
 
 ---
 
-### 🔁 Step 5: Delete User Auth Settings
+### Step 5: Delete User Auth Settings
 
 ```bash
 delete access profile auth-profile
@@ -182,12 +182,10 @@ commit
 
 ---
 
-
-## 🔐 Final Notes
+## Final Notes
 
 - Juniper uses **zones + policies** to control traffic  
 - User authentication adds a second security layer  
 - Always commit carefully and test policies before deployment  
 - JUNOS config tree makes it easy to manage rules at scale
-
-✅ This lab demonstrates enterprise-grade access control in real-world networks.
+- This lab project demonstrates enterprise-grade access control in real-world networks.
