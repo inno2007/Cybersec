@@ -137,4 +137,6 @@ $stmt->execute();
 - Disable error details on production  
 - Use least-privileged database accounts
 
+## Outcome 
+![Image](https://github.com/user-attachments/assets/27b58cb4-53d5-4342-9d8b-2b159523ab04)
 
