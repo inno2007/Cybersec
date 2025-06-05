@@ -1,11 +1,11 @@
-# 📡 Network Layer Attacks – SYN Flooding, ARP Cache Poisoning, ICMP Redirect
+# Network Layer Attacks – SYN Flooding, ARP Cache Poisoning, ICMP Redirect
 
-## 🎯 Objective  
+## Objective  
 Simulate low-level network attacks that disrupt communication or redirect traffic using fake packets. Learn how attackers manipulate ARP tables, spoof ICMP messages, and flood TCP connections.
 
 ---
 
-## 🛠️ Tools Used  
+## Tools Used  
 - Netwag  
 - TShark / Wireshark  
 - Kali Linux VMs  
@@ -13,9 +13,9 @@ Simulate low-level network attacks that disrupt communication or redirect traffi
 
 ---
 
-## 🌊 A. SYN Flood Attack – TCP Resource Exhaustion
+## A. SYN Flood Attack – TCP Resource Exhaustion
 
-### 🔧 Setup & Execution
+### Setup & Execution
 
 1. Start packet capture on target (use TShark instead of Wireshark):
 ```bash
@@ -25,18 +25,18 @@ sudo tshark
 2. Launch SYN flood using Netwag:
 - Tool `#76: SynFlood`
 
-🧠 **Effect**: Creates many half-open TCP connections to overwhelm the server.
+**Effect**: Creates many half-open TCP connections to overwhelm the server.
 
 3. Observe traffic with:
 ```bash
 sudo tshark
 ```
-
+![Image](https://github.com/user-attachments/assets/c0134ac6-9972-47d0-b7be-8854265c5bec)
 ---
 
-## 🕸️ B. ARP Cache Poisoning – Man-in-the-Middle Setup
+## B. ARP Cache Poisoning – Man-in-the-Middle Setup
 
-### 🔧 Steps:
+### Steps:
 
 1. On the server VM, check the ARP table:
 ```bash
@@ -51,19 +51,19 @@ arp -a
 arp -a
 ```
 
-🧠 The server now associates the client’s IP with the attacker’s MAC address — this sets up a MITM scenario.
+- The server now associates the client’s IP with the attacker’s MAC address — this sets up a MITM scenario.
 
 > Bonus: Use `arpspoof` as an alternative:
 ```bash
 sudo apt install dsniff
 sudo arpspoof -i eth0 -t <targetIP> <gatewayIP>
 ```
-
+![Image](https://github.com/user-attachments/assets/f498e59a-d553-4286-9df1-6a12ec12d4af)
 ---
 
-## 🔄 C. ICMP Redirect Attack – Route Hijacking
+## C. ICMP Redirect Attack – Route Hijacking
 
-### 🧪 Steps:
+### Steps:
 
 1. On the client VM:
 ```bash
@@ -78,12 +78,12 @@ sudo wireshark
 
 3. Observe Wireshark to verify the victim is now being redirected.
 
-🧠 **Goal**: Trick the victim into routing future traffic through the attacker.
+**Goal**: Trick the victim into routing future traffic through the attacker.
 
-
+![Image](https://github.com/user-attachments/assets/f80e7767-f680-4e95-b7f1-9a2ae6dc4d73)
 ---
 
-## 🔐 Mitigation Tips
+## Mitigation Tips
 
 - Enable ARP inspection and static bindings on switches  
 - Use SYN cookies on servers to defend against SYN floods  
