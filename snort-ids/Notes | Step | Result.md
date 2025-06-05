@@ -1,29 +1,29 @@
-# 🚨 Intrusion Detection System – Snort Rules, Alerts & Logs
+# Intrusion Detection System – Snort Rules, Alerts & Logs
 
-## 🎯 Objective  
+## Objective  
 Use Snort in IDS mode to detect suspicious traffic. Write custom rules, trigger alerts, and analyze log outputs to understand how signature-based detection works.
 
 ---
 
-## 🛠️ Tools Used  
+## 🛠Tools Used  
 - Snort (Command-line IDS)  
-- Kali Linux / Ubuntu  
-- Wireshark or TShark (optional)  
+- Kali Linux / VMWare  
+- Wireshark or TShark 
 - Custom traffic generators (e.g., ping, netcat, curl)
 
 ---
 
-## 🧪 A. Verify Snort Installation
+## A. Verify Snort Installation
 
 ```bash
 snort -V
 ```
 
-Output should show version, build info, and available preprocessors.
+- Output should show version, build info, and available preprocessors.
 
 ---
 
-## 📁 B. Set Up Rules Directory
+## B. Set Up Rules Directory
 
 ### Step 1: Create a test rules file
 ```bash
@@ -37,7 +37,7 @@ alert icmp any any -> any any (msg:"ICMP packet detected"; sid:1000001;)
 
 ---
 
-## 🧪 C. Run Snort in NIDS Mode with Custom Rules
+## C. Run Snort in NIDS Mode with Custom Rules
 
 ```bash
 sudo snort -A console -q -c /etc/snort/snort.conf -i eth0 -l /var/log/snort -K ascii
@@ -50,7 +50,7 @@ sudo snort -A console -q -c /etc/snort/snort.conf -i eth0 -l /var/log/snort -K a
 
 ---
 
-## 🧪 D. Trigger the Rule with ICMP
+## D. Trigger the Rule with ICMP
 
 Open another terminal and ping:
 ```bash
@@ -69,7 +69,7 @@ cat /var/log/snort/alert
 
 ---
 
-## 📄 E. Create More Rules
+## E. Create More Rules
 
 ### Detect TCP to port 23 (Telnet):
 ```bash
@@ -83,7 +83,7 @@ alert tcp any any -> any 80 (msg:"Potential Web Attack"; content:"cmd.exe"; sid:
 
 ---
 
-## 📜 Snort Rule Structure
+## Snort Rule Structure
 
 ```
 action proto src_ip src_port -> dst_ip dst_port (options)
@@ -96,7 +96,7 @@ alert tcp any any -> any 22 (msg:"SSH connection detected"; sid:1000004;)
 
 ---
 
-## 📊 F. Logging & Alert Analysis
+## F. Logging & Alert Analysis
 
 View alert logs:
 ```bash
@@ -110,11 +110,10 @@ Each alert shows:
 - Protocol + IP details
 
 ---
-
-## 🔐 Security Insights
+![Image](https://github.com/user-attachments/assets/69117049-428d-4c95-91b0-a671c259eef4)
+---
+## Security Insights
 
 - Snort is powerful for detecting known threats using signatures  
 - Signature quality and rule tuning are critical to reduce false positives  
 - Log analysis + proper action scripts are essential for real-time response
-
-✅ Consider combining Snort with firewalls or SIEM tools in larger setups.
