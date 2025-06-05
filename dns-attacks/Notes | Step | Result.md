@@ -1,6 +1,6 @@
-# 🌐 DNS Attacks – Hosts File Poisoning, DNS Spoofing, Cache Poisoning
+# DNS Attacks – Hosts File Poisoning, DNS Spoofing, Cache Poisoning
 
-## 🎯 Objective  
+## Objective  
 Simulate DNS-based attacks including:  
 1. Local hosts file redirection  
 2. Spoofing DNS replies to clients  
@@ -8,7 +8,7 @@ Simulate DNS-based attacks including:
 
 ---
 
-## 🛠️ Tools Used  
+## Tools Used  
 - Kali Linux (Client, Attacker)  
 - Wireshark  
 - Netwag (DNS Spoofer)  
@@ -17,9 +17,9 @@ Simulate DNS-based attacks including:
 
 ---
 
-## 🔧 A. Local DNS Attack – Hosts File Modification
+## A. Local DNS Attack – Hosts File Modification
 
-### 🧪 Steps:
+### Steps:
 1. **Check current DNS resolution:**
 ```bash
 dig website.com
@@ -48,16 +48,17 @@ sudo ifup eth0
 dig website.com
 ```
 
-🧠 _Outcome_: Client gets spoofed IP address based on modified DNS setting.
+Outcome_: Client gets spoofed IP address based on modified DNS setting.
+![Image](https://github.com/user-attachments/assets/a9cc4ee6-e7f6-4902-88cd-efa3add580a6)
 
 ---
 
-## 🧪 B. DNS Response Spoofing – Targeting the Client
+## B. DNS Response Spoofing – Targeting the Client
 
-### 📝 Explanation  
+### Explanation  
 Intercept and spoof a DNS response before the legitimate DNS server replies. This tricks the client into resolving the domain to a fake IP.
 
-### 🔄 Steps
+### Steps
 
 1. **Run Wireshark on the client (filter for DNS):**
 ```bash
@@ -80,16 +81,17 @@ sudo netwag
 
 5. **Run `dig` again on client and observe spoofed reply in Wireshark**
 
-🧠 DNS is **first-response-wins**, so spoofed reply must arrive before the real one.
+DNS is **first-response-wins**, so spoofed reply must arrive before the real one.
+![Image](https://github.com/user-attachments/assets/bfd13144-e5ac-49a5-879c-bf93919d9edb)
 
 ---
 
-## 💣 C. DNS Server Cache Poisoning – Targeting the DNS Server
+## C. DNS Server Cache Poisoning – Targeting the DNS Server
 
-### 📝 Explanation  
+### Explanation  
 Trick the DNS server into caching a forged record, so **every user** gets the wrong IP.
 
-### 🔄 Steps
+### Steps
 
 1. **Do NOT use Wireshark here. Just dig from client:**
 ```bash
@@ -105,11 +107,12 @@ dig www.uts.edu.au
 sudo rndc flush
 ```
 
-🧠 _Impact_: All users relying on this DNS server now get the attacker’s IP.
+_Impact_: All users relying on this DNS server now get the attacker’s IP.
+![Image](https://github.com/user-attachments/assets/255b3a91-1071-4125-a9ae-dbc613d62481)
 
 ---
 
-## 🔐 Defense Tips
+## Defense Tips
 - Use DNSSEC to verify integrity of responses  
 - Restrict who can query or respond to your DNS server  
 - Use secure DNS-over-HTTPS or DoT  
