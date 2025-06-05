@@ -1,11 +1,11 @@
-# 🛠️ Session Hijacking & Protocol Abuse – Telnet, SSH, ICMP Reset, TCP Hijack
+# Session Hijacking & Protocol Abuse – Telnet, SSH, ICMP Reset, TCP Hijack
 
-## 🎯 Objective  
+## Objective  
 Simulate session-level and packet-based attacks to demonstrate how insecure services like Telnet and poorly filtered ICMP/TCP traffic can be exploited for hijacking or disruption.
 
 ---
 
-## 🛠️ Tools Used  
+## Tools Used  
 - Wireshark / TShark  
 - Netwag  
 - Kali Linux  
@@ -14,9 +14,9 @@ Simulate session-level and packet-based attacks to demonstrate how insecure serv
 
 ---
 
-## 🧪 A. Telnet Credential Interception
+## A. Telnet Credential Interception
 
-### 🔧 Steps:
+### Steps:
 
 1. Start Telnet service on server:
 ```bash
@@ -35,11 +35,12 @@ telnet <server_ip>
 4. Follow TCP Stream to view:
 - Username and password in plaintext
 
-🧠 _Telnet sends everything unencrypted, making sniffing trivial._
+_Telnet sends everything unencrypted, making sniffing trivial._
 
+![Image](https://github.com/user-attachments/assets/a47696a7-591a-431e-b50a-93645fd3bc8c)
 ---
 
-## 🔐 B. SSH Login Attempt Monitoring (Optional)
+## B. SSH Login Attempt Monitoring
 
 1. Try brute-forcing or logging in with known credentials:
 ```bash
@@ -48,13 +49,14 @@ ssh user@<ip>
 
 2. Run Wireshark with filter: `tcp.port == 22`
 
-🧠 Although encrypted, SSH traffic patterns may still reveal login behavior or allow MITM setup with prior key insertion.
+- Although encrypted, SSH traffic patterns may still reveal login behavior or allow MITM setup with prior key insertion.
 
+![Image](https://github.com/user-attachments/assets/45e8bd7d-d8ee-4589-bf3f-28c72ab2ae34)
 ---
 
-## 🧨 C. ICMP Blind Connection Reset
+## C. ICMP Blind Connection Reset
 
-### 🔧 Steps:
+### Steps:
 
 1. Identify open TCP connection (e.g., from client to web server)
 
@@ -65,24 +67,24 @@ ssh user@<ip>
 
 3. Observe disconnection or degraded performance on target
 
-🧠 ICMP reset floods can drop valid sessions, causing denial-of-service.
-
+- ICMP reset floods can drop valid sessions, causing denial-of-service.
+![Image](https://github.com/user-attachments/assets/14d4d627-8edf-40e5-bd5a-ef7248048b52)
 ---
 
-## 🕶️ D. TCP Session Hijacking (Conceptual)
+## D. TCP Session Hijacking
 
 1. Sniff sequence numbers of an active session  
 2. Send forged TCP packets with predicted seq/ack values  
 3. Inject spoofed commands into session (e.g., echo or ls)
 
-🧠 Works best on non-encrypted protocols like Telnet or older FTP
+- Works best on non-encrypted protocols like Telnet or older FTP
 
-💡 **This attack is now mostly theoretical unless ARP poisoning or MITM is active.**
-
+-  **This attack is now mostly theoretical unless ARP poisoning or MITM is active.**
+![Image](https://github.com/user-attachments/assets/195e0633-6984-470a-a992-0a357b2fa621)
 ---
 
 
-## 🔐 Defense Tips
+## Defense Tips
 
 - Disable Telnet; use SSH only with key auth  
 - Drop unexpected ICMP types on firewalls  
