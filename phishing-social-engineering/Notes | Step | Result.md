@@ -1,11 +1,11 @@
-# 🎣 Phishing & Mobile OS Information Gathering – Zphisher & Termux
+# Phishing & Mobile OS Information Gathering – Zphisher & Termux
 
-## 🎯 Objective  
+## Objective  
 Simulate phishing attacks using pre-built templates with Zphisher, and gather mobile device metadata through social engineering. Understand how attackers craft believable phishing pages and capture credentials.
 
 ---
 
-## 🛠️ Tools Used  
+## Tools Used  
 - Zphisher (GitHub phishing tool)  
 - 000webhost (hosted phishing site)  
 - Termux / iSH (mobile info gathering)  
@@ -14,9 +14,9 @@ Simulate phishing attacks using pre-built templates with Zphisher, and gather mo
 
 ---
 
-## 🎯 A. Launch a Phishing Page (Zphisher)
+## A. Launch a Phishing Page (Zphisher)
 
-### 🔧 Steps:
+### Steps:
 
 1. Clone and install Zphisher:
 ```bash
@@ -33,11 +33,11 @@ bash zphisher.sh
 
 4. Copy and send the generated phishing link to a victim
 
-🧠 **Result**: When the victim enters credentials, Zphisher captures and displays them.
+**Result**: When the victim enters credentials, Zphisher captures and displays them.
 
 ---
 
-## 🧪 B. Host a Phishing Site on 000webhost
+## B. Host a Phishing Site on 000webhost
 
 1. Create a free 000webhost account  
 2. Upload a cloned login page (e.g., fake Instagram or Gmail)  
@@ -61,7 +61,7 @@ credentials.txt
 
 ---
 
-## 📱 C. Mobile OS Info Gathering – Termux & iSH
+## C. Mobile OS Info Gathering – Termux & iSH
 
 ### Termux (Android):
 ```bash
@@ -75,13 +75,12 @@ neofetch
 apk update && apk add neofetch
 neofetch
 ```
-
-🧠 **Use:** Trick users into pasting device output (platform, CPU, kernel, etc.)  
-💡 Often used to estimate device capabilities or deliver specific exploits
+ **Use:** Trick users into pasting device output (platform, CPU, kernel, etc.)  
+- Often used to estimate device capabilities or deliver specific exploits
 
 ---
 
-## 🧠 Key Concepts
+## Key Concepts
 
 - **Phishing** leverages trust and urgency  
 - **Credential harvesting** via cloned sites is highly effective  
@@ -90,19 +89,7 @@ neofetch
 
 ---
 
-## 📸 Recommended Screenshots
-
-Save inside `phishing-social-engineering/screenshots/`:
-
-- `zphisher-ui.png` → Tool running in terminal  
-- `phishing-page.png` → Screenshot of fake login form  
-- `captured-creds.png` → Terminal showing intercepted credentials  
-- `000webhost-upload.png` → Hosting the phishing files  
-- `mobile-neofetch.png` → Neofetch output from phone
-
----
-
-## 🛡️ Security Advice
+## Security Advice
 
 - Always check the URL before logging in  
 - Avoid clicking unknown shortened links  
